@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 // doubly linked list, uses a cursor and no sentinels.
@@ -23,16 +24,18 @@ public class A23145232<T> {
 		if (cursor == null) {
 			throw new IllegalArgumentException("Invalid");
 		}
-		else 
+		else {
 			cursor = cursor.getNext();
+		}
 	}
 
 	public void goBack() { // CHANGE CODE HERE
 		if (cursor == null) {
 			throw new IllegalArgumentException("Invalid");
 		}
-		else 
+		else {
 			cursor = cursor.getPrev();
+		}
 	}
 
 	public void addBefore(T d) { // CHANGE CODE HERE
@@ -66,7 +69,8 @@ public class A23145232<T> {
 			cursor = null;
 			return data;
 		}
-		cursor.setNext(cursor.getNext().getNext());
+		cursor.getPrev().setNext(cursor.getNext().getNext());
+		cursor = cursor.getNext();
 		return data;
 	}
 
