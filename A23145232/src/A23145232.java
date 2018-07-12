@@ -20,7 +20,7 @@ public class A23145232<T> {
 	}
 
 	public void advance() { // CHANGE CODE HERE
-		if (cursor == null || cursor.getNext() == null) {
+		if (cursor == null) {
 			throw new IllegalArgumentException("Invalid");
 		}
 		else 
@@ -28,7 +28,7 @@ public class A23145232<T> {
 	}
 
 	public void goBack() { // CHANGE CODE HERE
-		if (cursor == null || cursor.getPrev() == null) {
+		if (cursor == null) {
 			throw new IllegalArgumentException("Invalid");
 		}
 		else 
@@ -38,11 +38,11 @@ public class A23145232<T> {
 	public void addBefore(T d) { // CHANGE CODE HERE
 		DNode <T> p;
 		if (cursor == null) {
-			 p = new DNode<T>(d, null, null);
+			 p = new DNode<T>(d, cursor, cursor);
 			cursor = p;
 		}
 		else {
-			p = new DNode<T>(d, null, cursor);
+			p = new DNode<T>(d, cursor.getPrev(), cursor);
 			cursor.setPrev(p);
 		}
 	}
@@ -50,11 +50,11 @@ public class A23145232<T> {
 	public void addAfter(T d) { // CHANGE CODE HERE
 		DNode <T> n;
 		if (cursor == null) {
-			n = new DNode<T>(d, null, null);
+			n = new DNode<T>(d, cursor, cursor);
 			cursor = n;
 		}
 		else {
-			n = new DNode<T>(d, cursor, null);
+			n = new DNode<T>(d, cursor, cursor.getNext());
 			cursor.setNext(n);
 		}
 	}
