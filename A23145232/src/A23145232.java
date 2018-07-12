@@ -28,7 +28,7 @@ public class A23145232<T> {
 	}
 
 	public void goBack() { // CHANGE CODE HERE
-		if (cursor == null || cursor.getNext() == null) {
+		if (cursor == null || cursor.getPrev() == null) {
 			throw new IllegalArgumentException("Invalid");
 		}
 		else 
