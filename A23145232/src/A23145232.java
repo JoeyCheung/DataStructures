@@ -36,16 +36,38 @@ public class A23145232<T> {
 	}
 
 	public void addBefore(T d) { // CHANGE CODE HERE
-		
+		DNode <T> p;
+		if (cursor == null) {
+			 p = new DNode<T>(d, null, null);
+			cursor = p;
+		}
+		else {
+			p = new DNode<T>(d, null, cursor);
+			cursor.setPrev(p);
+		}
 	}
 
 	public void addAfter(T d) { // CHANGE CODE HERE
-
+		DNode <T> n;
+		if (cursor == null) {
+			n = new DNode<T>(d, null, null);
+			cursor = n;
+		}
+		else {
+			n = new DNode<T>(d, cursor, null);
+			cursor.setNext(n);
+		}
 	}
 
 	public T remove() { // CHANGE CODE HERE
-		
-		return null;
+		if (cursor == null) throw new RuntimeException("Empty");
+		T data = cursor.getData();
+		if (cursor.getNext() == cursor) {
+			cursor = null;
+			return data;
+		}
+		cursor.setNext(cursor.getNext().getNext());
+		return data;
 	}
 
 	// LinkedList testing methods:
@@ -60,6 +82,7 @@ public class A23145232<T> {
 	}
 
 	public static void main(String args[]) {
+		
 		A23145232<String> l = new A23145232<>();
 		boolean done = false;
 		Scanner s = new Scanner(System.in);
