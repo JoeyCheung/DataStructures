@@ -42,10 +42,13 @@ public class A23145232<T> {
 		DNode <T> p;
 		if (cursor == null) {
 			 p = new DNode<T>(d, cursor, cursor);
+			 p.setPrev(p);
+			 p.setNext(p);
 			cursor = p;
 		}
 		else {
 			p = new DNode<T>(d, cursor.getPrev(), cursor);
+			cursor.getPrev().setNext(p);
 			cursor.setPrev(p);
 		}
 	}
@@ -54,10 +57,13 @@ public class A23145232<T> {
 		DNode <T> n;
 		if (cursor == null) {
 			n = new DNode<T>(d, cursor, cursor);
+			n.setNext(n);
+			n.setPrev(n);
 			cursor = n;
 		}
 		else {
 			n = new DNode<T>(d, cursor, cursor.getNext());
+			cursor.getNext().setPrev(n);
 			cursor.setNext(n);
 		}
 	}
@@ -65,11 +71,12 @@ public class A23145232<T> {
 	public T remove() { // CHANGE CODE HERE
 		if (cursor == null) throw new RuntimeException("Empty");
 		T data = cursor.getData();
-		if (cursor.getNext() == cursor) {
+		if (cursor.getNext() == cursor || cursor.getPrev() == cursor) {
 			cursor = null;
 			return data;
 		}
-		cursor.getPrev().setNext(cursor.getNext().getNext());
+		cursor.getPrev().setNext(cursor.getNext());
+		cursor.getNext().setPrev(cursor.getPrev());
 		cursor = cursor.getNext();
 		return data;
 	}
