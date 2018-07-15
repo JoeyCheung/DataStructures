@@ -1,4 +1,4 @@
-
+//Joey Cheung
 import java.util.Scanner;
 
 // doubly linked list, uses a cursor and no sentinels.
