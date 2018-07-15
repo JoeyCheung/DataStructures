@@ -98,7 +98,6 @@ public class A23145232<T> {
 	}
 
 	public static void main(String args[]) {
-		
 		A23145232<String> l = new A23145232<>();
 		boolean done = false;
 		Scanner s = new Scanner(System.in);
