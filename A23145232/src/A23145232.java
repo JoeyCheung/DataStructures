@@ -50,7 +50,9 @@ public class A23145232<T> {
 			p = new DNode<T>(d, cursor.getPrev(), cursor);
 			cursor.getPrev().setNext(p);
 			cursor.setPrev(p);
+			cursor = p;
 		}
+		size++;
 	}
 
 	public void addAfter(T d) { // CHANGE CODE HERE
@@ -65,7 +67,9 @@ public class A23145232<T> {
 			n = new DNode<T>(d, cursor, cursor.getNext());
 			cursor.getNext().setPrev(n);
 			cursor.setNext(n);
+			cursor = n;
 		}
+		size++;
 	}
 
 	public T remove() { // CHANGE CODE HERE
@@ -78,6 +82,7 @@ public class A23145232<T> {
 		cursor.getPrev().setNext(cursor.getNext());
 		cursor.getNext().setPrev(cursor.getPrev());
 		cursor = cursor.getNext();
+		size--;
 		return data;
 	}
 
