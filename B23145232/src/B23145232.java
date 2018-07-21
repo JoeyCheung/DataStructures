@@ -228,6 +228,7 @@ class LinkedDeque<T> implements Deque<T> {
 
 	public void addRear(T x) throws Exception {
 		// add implementation
+		if (size == 1000) throw new Exception("Full");
 		DNode<T> r = new DNode<>(x, null, null);
 		if (empty()) {
 			front = r;
@@ -241,6 +242,7 @@ class LinkedDeque<T> implements Deque<T> {
 	}
 
 	public void addFront(T x) throws Exception {
+		if (size == 1000) throw new Exception("Full");
 		DNode<T> f = new DNode<>(x, null, null);
 		if (empty()) {
 			rear = f;
@@ -263,6 +265,7 @@ class LinkedDeque<T> implements Deque<T> {
 			if (size > 1) ans += " -> ";
 	        n = n.getNext();
 	    }
+		if (n == null) ans = "";
 		return ans;
 	}
 }
