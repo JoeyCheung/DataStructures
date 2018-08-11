@@ -12,7 +12,7 @@ class BSTPQ<K extends Comparable<K>> extends BST<K> implements PriorityQueue<K> 
 	
 	public K removeMin() throws Exception {
 		// TODO add this code
-		if (root() == null) throw new Exception("Empty");
+		if(root() == null) throw new Exception("Empty");
 		BinaryNode lower = (BinaryNode) root;
 		while(lower.getLeft() != null) {
 			lower = lower.getLeft();
