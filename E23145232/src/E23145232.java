@@ -8,7 +8,6 @@ class BSTPQ<K extends Comparable<K>> extends BST<K> implements PriorityQueue<K> 
 	public void insert(K x) throws Exception {
 		// TODO add this code
 		add(x);
-		return;
 	}
 	
 	public K removeMin() throws Exception {
