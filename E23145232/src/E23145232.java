@@ -1,3 +1,4 @@
+//Joey Cheung
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -7,12 +8,11 @@ class BSTPQ<K extends Comparable<K>> extends BST<K> implements PriorityQueue<K> 
 	public void insert(K x) throws Exception {
 		// TODO add this code
 		add(x);
-		return;
 	}
 	
 	public K removeMin() throws Exception {
 		// TODO add this code
-		if (root() == null) throw new Exception("Empty");
+		if(root() == null) throw new Exception("Empty");
 		BinaryNode lower = (BinaryNode) root;
 		while(lower.getLeft() != null) {
 			lower = lower.getLeft();

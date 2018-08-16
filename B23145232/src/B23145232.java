@@ -263,8 +263,8 @@ class LinkedDeque<T> implements Deque<T> {
 			ans += n.getData();
 			if (n == rear) break;
 			if (size > 1) ans += " -> ";
-	        n = n.getNext();
-	    }
+	        	n = n.getNext();
+	    	}
 		if (n == null) ans = "";
 		return ans;
 	}
